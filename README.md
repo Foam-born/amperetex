@@ -12,7 +12,9 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles,  minifies for production and run server
 ```
+npm i -g serve
 npm run build
+serve -s dist
 ```
