@@ -6,7 +6,8 @@ const block = 'use';
 
 const elems = {
     list: block + '__slider-list',
-    item: block + '__slider-item'
+    item: block + '__slider-item',
+    slide: block + '__slide'
 };
 
 const mods = {
@@ -49,13 +50,13 @@ $(document).ready(function () {
     } else {
         $item.mouseover(
             function () {
-                $(this).addClass(mods.active);
+                $(this).find('.' + elems.slide).addClass(mods.active);
             }
         );
 
         $item.mouseleave(
             function () {
-                $(this).removeClass(mods.active);
+                $(this).find('.' + elems.slide).removeClass(mods.active);
             }
         );
     }

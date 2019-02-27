@@ -3,16 +3,18 @@
 $slider-item-full-width = 284px
 
 slider-item-active-style()
-  width: $slider-item-full-width
-  height: auto
-  transform: scale(1.1)
+  width: 284px
+  position: absolute
   z-index: 1
+  transform: scale(1.1)
+  &:last-child
+    right: 0
   .use__slider-item-shadow
     width: $slider-item-full-width
     height: 230px
-    img
-      width: 100%
-      min-height: 100%
+  img
+    width: 100%
+    min-height: 100%
   .use__slider-item-shadow::after
     background: transparent
   .use__slider-item-descr
@@ -30,6 +32,8 @@ slider-item-active-style()
     font-size: 16px
     font-family: $font-family-general--semi-bold
     text-align: center
+  .use__slider-item-shadow::after
+    background: transparent
 
 .use
   padding-top: $default-offset * 6
@@ -48,11 +52,7 @@ slider-item-active-style()
     size(104px, 300px)
     cursor: pointer
     transition: .3s
-    @media (max-width: 1250px)
-      padding: 0 $default-offset * 1.5
-      slider-item-active-style()
-      position: relative
-      transform: none
+
 
     .use__slider-item-shadow
       @media (max-width: 1250px)
@@ -65,11 +65,28 @@ slider-item-active-style()
         box-shadow: none
 
     &:hover
-      .use__slider-item-shadow::after
-        background: transparent
+      .use__slide
+        slider-item-active-style()
 
     &--active
       slider-item-active-style()
+
+  &__fake-slide
+    display: block
+    position: relative
+    size(104px, 300px)
+    @media (max-width: 1250px)
+      display: none
+
+  &__slide
+    position: absolute
+    top: 0
+    size(100%)
+    @media (max-width: 1250px)
+      padding: 0 $default-offset * 1.5
+      slider-item-active-style()
+      //position: relative
+      transform: none
 
   &__slider-item-shadow
     position: relative
