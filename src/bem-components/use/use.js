@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     const slideWidth = 300;
 
-    if (window.innerWidth < 1250) {
+    if (window.innerWidth < 1251) {
         let slidesCount = window.innerWidth / slideWidth;
 
         $list.slick({
@@ -48,16 +48,16 @@ $(document).ready(function () {
 
 
     } else {
-        $item.mouseover(
-            function () {
-                $(this).find('.' + elems.slide).addClass(mods.active);
-            }
-        );
-
-        $item.mouseleave(
-            function () {
-                $(this).find('.' + elems.slide).removeClass(mods.active);
-            }
-        );
+        // $item.mouseover(
+        //     function () {
+        //         $(this).find('.' + elems.slide).addClass(mods.active);
+        //     }
+        // );
+        //
+        // $item.mouseleave(
+        //     function () {
+        //         $(this).find('.' + elems.slide).removeClass(mods.active);
+        //     }
+        // );
     }
 });

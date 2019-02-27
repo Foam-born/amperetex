@@ -7,8 +7,7 @@ slider-item-active-style()
   position: absolute
   z-index: 1
   transform: scale(1.1)
-  &:last-child
-    right: 0
+  left: 0
   .use__slider-item-shadow
     width: $slider-item-full-width
     height: 230px
@@ -53,7 +52,6 @@ slider-item-active-style()
     cursor: pointer
     transition: .3s
 
-
     .use__slider-item-shadow
       @media (max-width: 1250px)
         width: 100%
@@ -65,11 +63,15 @@ slider-item-active-style()
         box-shadow: none
 
     &:hover
-      .use__slide
-        slider-item-active-style()
-
-    &--active
-      slider-item-active-style()
+      @media(min-width: 1251px)
+        &:last-child
+          .use__slide
+            left: -200px
+        &_first-child
+          .use__slide
+            left: 170px
+        .use__slide
+          slider-item-active-style()
 
   &__fake-slide
     display: block
@@ -85,14 +87,12 @@ slider-item-active-style()
     @media (max-width: 1250px)
       padding: 0 $default-offset * 1.5
       slider-item-active-style()
-      //position: relative
       transform: none
 
   &__slider-item-shadow
     position: relative
     height: 300px
     overflow: hidden
-
     &::after
       content: ''
       position: absolute
@@ -123,7 +123,6 @@ slider-item-active-style()
     position: relative
     margin-left: $default-offset * 2
     margin-bottom: $default-offset * 2
-
     &::before
       content: url("./../../../public/images/arrow.svg")
       position: absolute
